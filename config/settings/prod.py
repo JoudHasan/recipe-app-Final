@@ -3,7 +3,7 @@ import os
 
 # Production-specific settings
 DEBUG = False
-ALLOWED_HOSTS = ['your-production-domain.com']
+ALLOWED_HOSTS = ['your-recipe-app-39c4b4413551.herokuapp.com']
 
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'replace-this-with-production-secret-key')
 
