@@ -169,3 +169,17 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+# Ignore database files
+*.sqlite3
+
+# Ignore sensitive settings
+**/settings.py
+
+# Ignore media uploads
+/media/
+
+# Python cache files
+*.pyc
+__pycache__/
+
+
