@@ -23,6 +23,6 @@ sqlparse==0.5.1
 typing_extensions==4.12.2
 tzdata==2024.2
 whitenoise==6.7.0
-python3-distutils==3.13.1
 
 setuptools>=60.0.0
+distutils
