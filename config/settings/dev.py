@@ -1,9 +1,14 @@
+import environ
 from .base import *
 
-# Development-specific settings
-DEBUG = True
+env = environ.Env(DEBUG=(bool, True))
+environ.Env.read_env(str(BASE_DIR / ".env"))
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+SECRET_KEY = env.str("SECRET_KEY")
+DEBUG = env.bool("DEBUG")
+
+ALLOWED_HOSTS = ["*"]
+
 
 # Database settings for development
 DATABASES = {
@@ -12,3 +17,5 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+

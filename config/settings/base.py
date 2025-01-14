@@ -1,18 +1,13 @@
 from pathlib import Path
-from dotenv import load_dotenv
+
 import os
 
-# Load environment variables from a .env file
-load_dotenv()
+
 
 # Base directory path
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-# General settings
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'fallback-secret-key')
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
 
 # Application definition
 INSTALLED_APPS = [
@@ -21,9 +16,11 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles', 
-    'apps.recipes',  # Custom app
+    'django.contrib.staticfiles',
+    # Recipe-related apps
+    'apps.recipes',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -64,17 +61,31 @@ DATABASES = {
 }
 
 # Static and Media Files
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / 'apps/recipes/static',  #
-]
-STATIC_ROOT = BASE_DIR / 'staticfiles' 
+#STATIC_URL='apps/recipes/static/'
+#STATICFILES_DIRS = [BASE_DIR / 'static']
+
+#STATIC_ROOT = BASE_DIR / 'staticfiles' 
+
+#MEDIA_URL = '/media/'
+#MEDIA_ROOT = BASE_DIR / 'media'
+
+
+
+# Static files (CSS, JavaScript, Images)
+STATIC_URL='apps/recipes/static/'
 
 MEDIA_URL = '/media/'
+
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# Whitenoise settings (for production)
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+
+# Default primary key field type
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Authentication settings
+LOGIN_URL = '/login/'
+
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'
@@ -82,8 +93,4 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# Authentication
-LOGIN_URL = '/login/'
 
-# Default primary key field type
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
