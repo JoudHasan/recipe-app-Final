@@ -8,10 +8,10 @@ environ.Env.read_env(str(BASE_DIR / ".env.prod"))
 SECRET_KEY = env.str("SECRET_KEY")
 DEBUG = env.bool("DEBUG")
 
-ALLOWED_HOSTS = [""]
-CSRF_TRUSTED_ORIGINS = [
-    ""
-]  # modify later
+ALLOWED_HOSTS = ["*"]
+# CSRF_TRUSTED_ORIGINS = [
+#     ""
+# ]  # modify later
 
 MIDDLEWARE = MIDDLEWARE + ["whitenoise.middleware.WhiteNoiseMiddleware"]
 
@@ -40,9 +40,7 @@ MIDDLEWARE = MIDDLEWARE + ["whitenoise.middleware.WhiteNoiseMiddleware"]
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_ROOT = str(BASE_DIR / "staticfiles")
-#STATICFILES_DIRS = (str(BASE_DIR / "static"),)
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_DIRS = (str(BASE_DIR / "static"),)
 
 # Connect to our database remotely
 import dj_database_url # type: ignore
