@@ -1,1 +1,1 @@
-web: gunicorn bookstore.wsgi --log-file -
+web: make prod-migrate && make prod-gunicorn

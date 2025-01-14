@@ -24,3 +24,15 @@ dev-install:
 
 dev-test:
 	python3 manage.py test --settings=config.settings.dev
+
+prod-collectstatic:
+python3 manage.py collectstatic --settings=config.settings.prod
+
+prod-install:
+pip install -r requirements/prod.txt
+
+prod-migrate:
+python3 manage.py migrate --settings=config.settings.prod
+
+prod-gunicorn:.
+gunicorn --env DJANGO_SETTINGS_MODULE=config.settings.prod --BIND 0.0.0.0:8000 -c config/prod/prod.py --log-file-

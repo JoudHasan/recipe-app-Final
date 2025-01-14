@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from config.views import login_view, logout_view  # Import login and logout views
+from config.views import login_view, logout_view, register_view # Import login and logout views
 
 # Global URL configuration
 urlpatterns = [
@@ -26,6 +26,7 @@ urlpatterns = [
     path('', include('apps.recipes.urls', namespace='recipes')),  # Include recipes app URLs
     path('login/', login_view, name='login'),  # Login view
     path('logout/', logout_view, name='logout'),  # Logout view
+    path('register/', register_view, name='register'),  # Registration URL
 ]
 # Serve media files in development
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -7,7 +7,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 
 from django.contrib import messages
-
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 # define function that takes request from user
 def login_view(request):
     # initialize error message to none
@@ -53,3 +54,23 @@ def logout_view(request):
     logout(request)
     # navigate user to login form after logging out
     return render(request, "auth/success.html")  # Adjusted to match templates/auth/success.html
+# Registration View
+def register_view(request):
+    # Initialize the form
+    form = UserCreationForm()
+    if request.method == "POST":
+        # Get POST data into the form
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            # Save the user to the database
+            form.save()
+            messages.success(request, "Registration successful! You can now log in.")
+            return redirect("login")  # Redirect to login after successful registration
+        else:
+            messages.error(request, "Please correct the errors below.")
+
+    # Pass form to the context
+    context = {
+        "form": form,
+    }
+    return render(request, "auth/register.html", context)  # Adjust to templates/auth/register.html

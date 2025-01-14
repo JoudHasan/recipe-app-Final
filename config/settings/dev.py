@@ -1,4 +1,4 @@
-import environ
+import environ # type: ignore
 from .base import *
 
 env = environ.Env(DEBUG=(bool, True))
