@@ -1,1 +1,1 @@
-wsgi_app = "cofig.wsgi:application"
+wsgi_app = "config.wsgi:application"
