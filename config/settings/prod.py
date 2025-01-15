@@ -10,7 +10,7 @@ DEBUG = env.bool("DEBUG")
 
 ALLOWED_HOSTS = ["recipe-app-final-production.up.railway.app"]
  CSRF_TRUSTED_ORIGINS = [
-    "recipe-app-final-production.up.railway.app"
+"https://recipe-app-final-production.up.railway.app"
  ]  # modify later
 
 MIDDLEWARE = MIDDLEWARE + ["whitenoise.middleware.WhiteNoiseMiddleware"]
