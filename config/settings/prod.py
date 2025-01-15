@@ -9,9 +9,9 @@ SECRET_KEY = env.str("SECRET_KEY")
 DEBUG = env.bool("DEBUG")
 
 ALLOWED_HOSTS = ["recipe-app-final-production.up.railway.app"]
- CSRF_TRUSTED_ORIGINS = [
+CSRF_TRUSTED_ORIGINS = [
 "https://recipe-app-final-production.up.railway.app"
- ]  # modify later
+]  # modify later
 
 MIDDLEWARE = MIDDLEWARE + ["whitenoise.middleware.WhiteNoiseMiddleware"]
 
