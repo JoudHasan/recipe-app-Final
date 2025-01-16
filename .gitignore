@@ -177,7 +177,7 @@ cython_debug/
 **/settings.py
 
 # Ignore media uploads
-/media/
+#/media/
 
 # Python cache files
 *.pyc
