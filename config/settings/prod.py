@@ -41,7 +41,9 @@ MIDDLEWARE = MIDDLEWARE + ["whitenoise.middleware.WhiteNoiseMiddleware"]
 
 STATIC_ROOT = str(BASE_DIR / "staticfiles")
 STATICFILES_DIRS = (str(BASE_DIR / "static"),)
+MEDIA_URL = "/media/"
 
+MEDIA_ROOT = BASE_DIR / "media"
 # Connect to our database remotely
 import dj_database_url # type: ignore
 
